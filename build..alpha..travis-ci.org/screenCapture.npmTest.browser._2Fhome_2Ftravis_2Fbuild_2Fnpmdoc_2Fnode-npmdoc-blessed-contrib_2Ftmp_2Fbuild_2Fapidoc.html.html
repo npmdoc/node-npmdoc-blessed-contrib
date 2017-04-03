@@ -1,0 +1,228 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/yaronn/blessed-contrib#readme">blessed-contrib (v4.7.5)</a>
+</h1>
+<h4>Build dashboards (or any other application) using ascii/ansi art and javascript.</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.blessed-contrib">module blessed-contrib</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">blessed-contrib.</span>utils</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.blessed-contrib.utils">module blessed-contrib.utils</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.blessed-contrib.utils.MergeRecursive">
+            function <span class="apidocSignatureSpan">blessed-contrib.utils.</span>MergeRecursive
+            <span class="apidocSignatureSpan">(obj1, obj2)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.blessed-contrib.utils.abbreviateNumber">
+            function <span class="apidocSignatureSpan">blessed-contrib.utils.</span>abbreviateNumber
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.blessed-contrib.utils.getColorCode">
+            function <span class="apidocSignatureSpan">blessed-contrib.utils.</span>getColorCode
+            <span class="apidocSignatureSpan">(color)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.blessed-contrib.utils.getTypeName">
+            function <span class="apidocSignatureSpan">blessed-contrib.utils.</span>getTypeName
+            <span class="apidocSignatureSpan">(thing)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.blessed-contrib" id="apidoc.module.blessed-contrib">module blessed-contrib</a></h1>
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.blessed-contrib.utils" id="apidoc.module.blessed-contrib.utils">module blessed-contrib.utils</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.blessed-contrib.utils.MergeRecursive" id="apidoc.element.blessed-contrib.utils.MergeRecursive">
+        function <span class="apidocSignatureSpan">blessed-contrib.utils.</span>MergeRecursive
+        <span class="apidocSignatureSpan">(obj1, obj2)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function MergeRecursive(obj1, obj2) {
+
+  if (obj1==null) return obj2
+  if (obj2==null) return obj1
+
+  for (var p in obj2) {
+    try {
+      // property in destination object set; update its value
+      if ( obj2[p].constructor==Object ) {
+        obj1[p] = MergeRecursive(obj1[p], obj2[p]);
+
+      } else {
+        obj1[p] = obj2[p];
+
+      }
+
+    } catch(e) {
+      // property in destination object not set; create it and set its value
+      obj1[p] = obj2[p];
+
+    }
+  }
+
+  return obj1;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.blessed-contrib.utils.abbreviateNumber" id="apidoc.element.blessed-contrib.utils.abbreviateNumber">
+        function <span class="apidocSignatureSpan">blessed-contrib.utils.</span>abbreviateNumber
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function abbreviateNumber(value) {
+    var newValue = value;
+    if (value &gt;= 1000) {
+        var suffixes = ["", "k", "m", "b","t"];
+        var suffixNum = Math.floor( (""+value).length/3 );
+        var shortValue = '';
+        for (var precision = 2; precision &gt;= 1; precision--) {
+            shortValue = parseFloat( (suffixNum != 0 ? (value / Math.pow(1000,suffixNum) ) : value).toPrecision(precision));
+            var dotLessShortValue = (shortValue + '').replace(/[^a-zA-Z 0-9]+/g,'');
+            if (dotLessShortValue.length &lt;= 2) { break; }
+        }
+        if (shortValue % 1 != 0)  shortNum = shortValue.toFixed(1);
+            newValue = shortValue+suffixes[suffixNum];
+        }
+    return newValue;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.blessed-contrib.utils.getColorCode" id="apidoc.element.blessed-contrib.utils.getColorCode">
+        function <span class="apidocSignatureSpan">blessed-contrib.utils.</span>getColorCode
+        <span class="apidocSignatureSpan">(color)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getColorCode(color) {
+    if (Array.isArray(color) &amp;&amp; color.length == 3)
+    {
+        return x256(color[0],color[1],color[2]);
+    }
+    else
+    {
+      return color;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.blessed-contrib.utils.getTypeName" id="apidoc.element.blessed-contrib.utils.getTypeName">
+        function <span class="apidocSignatureSpan">blessed-contrib.utils.</span>getTypeName
+        <span class="apidocSignatureSpan">(thing)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getTypeName(thing){
+    if(thing===null)return "[object Null]"; // special case
+    return Object.prototype.toString.call(thing);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
