@@ -63,7 +63,48 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.blessed-contrib.grid">
+            function <span class="apidocSignatureSpan">blessed-contrib.</span>grid
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">blessed-contrib.</span>grid.prototype</span>
+
+        </li>
+
+        <li>
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">blessed-contrib.</span>utils</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.blessed-contrib.grid">module blessed-contrib.grid</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.blessed-contrib.grid.grid">
+            function <span class="apidocSignatureSpan">blessed-contrib.</span>grid
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.blessed-contrib.grid.prototype">module blessed-contrib.grid.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.blessed-contrib.grid.prototype.set">
+            function <span class="apidocSignatureSpan">blessed-contrib.grid.prototype.</span>set
+            <span class="apidocSignatureSpan">(row, col, rowSpan, colSpan, obj, opts)</span>
+            </a>
 
         </li>
 
@@ -115,6 +156,145 @@
 <h1><a href="#apidoc.module.blessed-contrib" id="apidoc.module.blessed-contrib">module blessed-contrib</a></h1>
 
 
+    <h2>
+        <a href="#apidoc.element.blessed-contrib.grid" id="apidoc.element.blessed-contrib.grid">
+        function <span class="apidocSignatureSpan">blessed-contrib.</span>grid
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Grid(options) {
+   if (!options.screen) throw &#x22;Error: A screen property must be specified in the grid options.\r\n&#x22; +
+                              &#x22;Note: Release 2.0.0 has breaking changes. Please refer to the README or to https://github.com/yaronn
+/blessed-contrib/issues/39&#x22;
+   this.options = options
+   this.options.dashboardMargin = this.options.dashboardMargin || 0
+   this.cellWidth = ((100 - this.options.dashboardMargin*2) / this.options.cols)
+   this.cellHeight = ((100  - this.options.dashboardMargin*2) / this.options.rows)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+A grid layout can auto position your elements in a grid layout.
+When using a grid, you should not create the widgets, rather specify to the grid which widget to create and with which params.
+Each widget can span multiple rows and columns.
+
+`````javascript
+   var screen = blessed.screen()
+
+   var grid = new contrib.<span class="apidocCodeKeywordSpan">grid</span>({rows: 12, cols: 12, screen: screen})
+
+   //grid.set(row, col, rowSpan, colSpan, obj, opts)
+   var map = grid.set(0, 0, 4, 4, contrib.map, {label: &#x27;World Map&#x27;})
+   var box = grid.set(4, 4, 4, 4, blessed.box, {content: &#x27;My Box&#x27;})
+
+   screen.render()
+`````
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.blessed-contrib.grid" id="apidoc.module.blessed-contrib.grid">module blessed-contrib.grid</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.blessed-contrib.grid.grid" id="apidoc.element.blessed-contrib.grid.grid">
+        function <span class="apidocSignatureSpan">blessed-contrib.</span>grid
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Grid(options) {
+   if (!options.screen) throw &#x22;Error: A screen property must be specified in the grid options.\r\n&#x22; +
+                              &#x22;Note: Release 2.0.0 has breaking changes. Please refer to the README or to https://github.com/yaronn
+/blessed-contrib/issues/39&#x22;
+   this.options = options
+   this.options.dashboardMargin = this.options.dashboardMargin || 0
+   this.cellWidth = ((100 - this.options.dashboardMargin*2) / this.options.cols)
+   this.cellHeight = ((100  - this.options.dashboardMargin*2) / this.options.rows)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+A grid layout can auto position your elements in a grid layout.
+When using a grid, you should not create the widgets, rather specify to the grid which widget to create and with which params.
+Each widget can span multiple rows and columns.
+
+`````javascript
+   var screen = blessed.screen()
+
+   var grid = new contrib.<span class="apidocCodeKeywordSpan">grid</span>({rows: 12, cols: 12, screen: screen})
+
+   //grid.set(row, col, rowSpan, colSpan, obj, opts)
+   var map = grid.set(0, 0, 4, 4, contrib.map, {label: &#x27;World Map&#x27;})
+   var box = grid.set(4, 4, 4, 4, blessed.box, {content: &#x27;My Box&#x27;})
+
+   screen.render()
+`````
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.blessed-contrib.grid.prototype" id="apidoc.module.blessed-contrib.grid.prototype">module blessed-contrib.grid.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.blessed-contrib.grid.prototype.set" id="apidoc.element.blessed-contrib.grid.prototype.set">
+        function <span class="apidocSignatureSpan">blessed-contrib.grid.prototype.</span>set
+        <span class="apidocSignatureSpan">(row, col, rowSpan, colSpan, obj, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">set = function (row, col, rowSpan, colSpan, obj, opts) {
+
+   if (obj instanceof Grid) {
+      throw &#x22;Error: A Grid is not allowed to be nested inside another grid.\r\n&#x22; +
+            &#x22;Note: Release 2.0.0 has breaking changes. Please refer to the README or to https://github.com/yaronn/blessed-contrib
+/issues/39&#x22;
+   }
+
+   var top = row * this.cellHeight + this.options.dashboardMargin
+   var left = col * this.cellWidth + this.options.dashboardMargin
+
+   //var options = JSON.parse(JSON.stringify(opts));
+   var options = {}
+   options = utils.MergeRecursive(options, opts)
+   options.top = top + &#x27;%&#x27;
+   options.left = left + &#x27;%&#x27;
+   options.width = (this.cellWidth * colSpan - widgetSpacing) + &#x22;%&#x22;
+   options.height = (this.cellHeight * rowSpan - widgetSpacing) + &#x22;%&#x22;
+   if (!this.options.hideBorder)
+      options.border = {type: &#x22;line&#x22;, fg: this.options.color || &#x22;cyan&#x22;}
+
+   var instance = obj(options)
+   this.options.screen.append(instance)
+   return instance
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Each widget can span multiple rows and columns.
+
+`````javascript
+   var screen = blessed.screen()
+
+   var grid = new contrib.grid({rows: 12, cols: 12, screen: screen})
+
+   //grid.<span class="apidocCodeKeywordSpan">set</span>(row, col, rowSpan, colSpan, obj, opts)
+   var map = grid.set(0, 0, 4, 4, contrib.map, {label: &#x27;World Map&#x27;})
+   var box = grid.set(4, 4, 4, 4, blessed.box, {content: &#x27;My Box&#x27;})
+
+   screen.render()
+`````
+
+### Carousel
+...</pre></li>
+    </ul>
+
 
 </div>
 
@@ -154,7 +334,22 @@
 
   return obj1;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+var top = row * this.cellHeight + this.options.dashboardMargin
+var left = col * this.cellWidth + this.options.dashboardMargin
+
+//var options = JSON.parse(JSON.stringify(opts));
+var options = {}
+options = utils.<span class="apidocCodeKeywordSpan">MergeRecursive</span>(options, opts)
+options.top = top + &#x27;%&#x27;
+options.left = left + &#x27;%&#x27;
+options.width = (this.cellWidth * colSpan - widgetSpacing) + &#x22;%&#x22;
+options.height = (this.cellHeight * rowSpan - widgetSpacing) + &#x22;%&#x22;
+if (!this.options.hideBorder)
+   options.border = {type: &#x22;line&#x22;, fg: this.options.color || &#x22;cyan&#x22;}
+...</pre></li>
     </ul>
 
 
@@ -182,7 +377,23 @@
         }
     return newValue;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  return max;
+}
+
+function formatYLabel(value, max, min, numLabels, wholeNumbersOnly, abbreviate) {
+  var fixed = (max/numLabels&#x3c;1 &#x26;&#x26; value!=0 &#x26;&#x26; !wholeNumbersOnly) ? 2 : 0
+  var res = value.toFixed(fixed)
+  return abbreviate?utils.<span class="apidocCodeKeywordSpan">abbreviateNumber</span>(res):res
+}
+
+function getMaxXLabelPadding(numLabels, wholeNumbersOnly, abbreviate, min) {
+  var max = getMaxY()
+
+  return formatYLabel(max, max, min, numLabels, wholeNumbersOnly, abbreviate).length * 2;
+}
+...</pre></li>
     </ul>
 
 
@@ -204,7 +415,23 @@
       return color;
     }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+            screen: self.screen
+          });
+
+      var legandText = &#x22;&#x22;
+      var maxChars = legendWidth-2
+      for (var i=0; i&#x3c;data.length; i++) {
+        var style = data[i].style || {}
+        var color = utils.<span class="apidocCodeKeywordSpan">getColorCode</span>(style.line || self.options.style.line)
+        legandText += &#x27;{&#x27;+color+&#x27;-fg}&#x27;+ data[i].title.substring(0, maxChars)+&#x27;{/&#x27;+color+&#x27;-fg}\r\n&#x27;
+      }
+      self.legend.setContent(legandText)
+      self.append(self.legend)
+    }
+
+//iteratee for lodash _.max
+...</pre></li>
     </ul>
 
 
