@@ -1,6 +1,6 @@
 # npmdoc-blessed-contrib
 
-#### api documentation for  [blessed-contrib (v4.7.5)](https://github.com/yaronn/blessed-contrib#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-blessed-contrib.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-blessed-contrib) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-blessed-contrib.svg)](https://travis-ci.org/npmdoc/node-npmdoc-blessed-contrib)
+#### basic api documentation for  [blessed-contrib (v4.7.5)](https://github.com/yaronn/blessed-contrib#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-blessed-contrib.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-blessed-contrib) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-blessed-contrib.svg)](https://travis-ci.org/npmdoc/node-npmdoc-blessed-contrib)
 
 #### Build dashboards (or any other application) using ascii/ansi art and javascript.
 
@@ -73,7 +73,8 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "version": "4.7.5"
+    "version": "4.7.5",
+    "bin": {}
 }
 ```
 

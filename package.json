@@ -1,7 +1,7 @@
 {
     "author": "kai zhu <kaizhu256@gmail.com>",
     "buildNpmdoc": "blessed-contrib",
-    "description": "#### api documentation for  [blessed-contrib (v4.7.5)](https://github.com/yaronn/blessed-contrib#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-blessed-contrib.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-blessed-contrib) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-blessed-contrib.svg)](https://travis-ci.org/npmdoc/node-npmdoc-blessed-contrib)",
+    "description": "#### basic api documentation for  [blessed-contrib (v4.7.5)](https://github.com/yaronn/blessed-contrib#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-blessed-contrib.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-blessed-contrib) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-blessed-contrib.svg)](https://travis-ci.org/npmdoc/node-npmdoc-blessed-contrib)",
     "devDependencies": {
         "blessed-contrib": "*",
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
@@ -36,5 +36,5 @@
         "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
         "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
-    "version": "0.0.4"
+    "version": "2017.4.27"
 }
